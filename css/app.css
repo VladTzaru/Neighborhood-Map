@@ -1,3 +1,28 @@
+/* BASE */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FAFAFA;
+  -webkit-font-smoothing: antialiased;
+  font: 16px/1.7rem 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+header {
+  background-color: #074d72;
+  padding: 1em;
+}
+
+.header-title {
+  margin-bottom: .2em;
+  color: #ECEFF1;
+  font-size: 18px;
+}
+
+
 #map {
   height: 100%;
 }

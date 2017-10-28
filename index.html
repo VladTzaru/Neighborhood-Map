@@ -13,9 +13,23 @@
 </head>
 <body>
 
+  <!-- **** MAP VIEW **** -->
+
+  <!-- Map placeholder -->
+  <div id="map"></div>
+  <!-- Init the map -->
+  <script>
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 40.7413549, lng: -73.9980244},
+        zoom: 13
+      })
+    }
+  </script>
 
 
   <!-- Custom JS -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQqHqSY1kb3JrV9pqpHfJSHpgv3v50&callback=initMap"async defer></script>
   <script src="js/app.js"></script>
 </body>
 </html>

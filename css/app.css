@@ -1,11 +1,19 @@
 /* BASE */
 body {
-  margin: 0;
-  padding: 0;
+
   background-color: #FAFAFA;
   -webkit-font-smoothing: antialiased;
   font: 16px/1.7rem 'Open Sans', sans-serif;
   color: #ECEFF1;
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3, h4 {
@@ -42,6 +50,17 @@ a {
   text-decoration: none;
 }
 
+footer {
+  background-color: #CFD8DC;
+  padding: 1em;
+  width: 100%;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: #212121;
+}
+
 
 /* LIST-VIEW */
 #list-view {
@@ -51,7 +70,6 @@ a {
   bottom: 0;
   background-color: #37474F;
   z-index: 10;
-  height: 100%;
   max-width: 320px;
   width: 100%;
   padding: 1em;
@@ -117,4 +135,10 @@ a {
 /* MAP-VIEW */
 #map {
   height: 100%;
+}
+
+
+/* HELPERS */
+.content {
+  flex: 1 0 auto;
 }

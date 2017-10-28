@@ -19,38 +19,44 @@
     <h1 class="header-title">Neighborhood Map</h1>
   </header>
 
+  <main class="content">
+    <!-- **** LIST VIEW **** -->
+    <div id="list-view">
+      <h4 class="list-view-section">Search places</h4>
+      <form id="list-form">
+        <input class="list-form-input" type="text" placeholder="Enter location">
+        <button class="list-form-submit-btn" type="submit">Submit</button>
+      </form>
 
-  <!-- **** LIST VIEW **** -->
-  <div id="list-view">
-    <h4 class="list-view-section">Search places</h4>
-    <form id="list-form">
-      <input class="list-form-input" type="text" placeholder="Enter location">
-      <button class="list-form-submit-btn" type="submit">Submit</button>
-    </form>
+      <h4 class="list-view-section">List of places</h4>
 
-    <h4 class="list-view-section">List of places</h4>
-
-    <ul>
-      <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
-      <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
-      <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
-      <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
-    </ul>
-  </div>
+      <ul>
+        <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
+        <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
+        <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
+        <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
+      </ul>
+    </div>
 
 
-  <!-- **** MAP VIEW **** -->
-  <!-- Map placeholder -->
-  <div id="map"></div>
-  <!-- Init the map -->
-  <script>
+    <!-- **** MAP VIEW **** -->
+    <!-- Map placeholder -->
+    <div id="map"></div>
+    <!-- Init the map -->
+    <script>
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 40.7413549, lng: -73.9980244},
         zoom: 13
       })
     }
-  </script>
+    </script>
+  </main>
+
+
+  <footer>
+    <p class="footer-copyright">Copyright © 2017 Vladimir Bojovic. All rights reserved.</p>
+  </footer>
 
 
   <!-- Custom JS -->

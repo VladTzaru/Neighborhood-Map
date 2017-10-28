@@ -18,6 +18,20 @@ header {
   text-transform: uppercase;
 }
 
+/* LIST VIEW */
+#list-view {
+  background-color: black;
+  height: 100%;
+  width: 300px;
+  position: absolute;
+  z-index: 100;
+}
+
+.list-view-item {
+  margin-top: 10em;
+  color: #fff;
+}
+
 
 /* MAP */
 #map {

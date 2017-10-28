@@ -52,10 +52,12 @@ a {
   background-color: #37474F;
   z-index: 10;
   height: 100%;
-  width: 250px;
+  max-width: 320px;
+  width: 100%;
   padding: 1em;
   opacity: .9;
   transition: ease-in-out .3s;
+  overflow-y: scroll;
 }
 
 #list-view:hover {
@@ -66,6 +68,8 @@ a {
   margin-top: 1em;
   border-bottom: 1px solid #B0BEC5;
   padding-bottom: 1em;
+  display: inline-flex;
+  flex-flow: row wrap;
 }
 
 .list-form-input {
@@ -74,7 +78,7 @@ a {
   border-radius: 4px;
   background-color: #ECEFF1;
   outline: none;
-  margin-bottom: 1em;
+  margin-right: .4em;
 }
 
 .list-form-submit-btn {
@@ -103,9 +107,14 @@ a {
   color: #80CBC4;
 }
 
+.list-view-section {
+  text-transform: uppercase;
+  color: #B0BEC5;
+  margin-top: 1em;
+}
 
 
-
+/* MAP-VIEW */
 #map {
   height: 100%;
 }

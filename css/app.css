@@ -1,3 +1,25 @@
+/* HEADER */
+header {
+  background-color: #074d72;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.header-title {
+  color: #fff;
+  padding-left: 1em;
+  font-family: 'Indie Flower', cursive;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+
+/* MAP */
 #map {
   height: 100%;
 }

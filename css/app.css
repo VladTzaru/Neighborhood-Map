@@ -53,7 +53,6 @@ a {
 footer {
   background-color: #CFD8DC;
   padding: 1em;
-  width: 100%;
 }
 
 .footer-copyright {
@@ -84,7 +83,7 @@ footer {
 
 #list-form {
   margin-top: 1em;
-  border-bottom: 1px solid #B0BEC5;
+  border-bottom: 1px solid #26A69A;
   padding-bottom: 1em;
   display: inline-flex;
   flex-flow: row wrap;

@@ -25,6 +25,20 @@ header {
   padding: 1em;
 }
 
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #26A69A;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #26A69A;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #26A69A;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #26A69A;
+}
+
 .header-title {
   margin: 0 0 .2em 2.5em;
   font-size: 18px;
@@ -91,11 +105,17 @@ footer {
 
 .list-form-input {
   padding: .4em;
-  border: none;
+  border: 1px solid #26A69A;
   border-radius: 4px;
-  background-color: #ECEFF1;
+  background-color: transparent;
+  color: #80CBC4;
   outline: none;
+  transition: ease-in-out .3s;
   margin-right: .4em;
+}
+
+.list-form-input:hover {
+  border: 1px solid #80CBC4;
 }
 
 .list-form-submit-btn {

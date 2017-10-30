@@ -1,7 +1,5 @@
 function AppViewModel() {
 
-
-
 }
 
 // Activates knockout.js

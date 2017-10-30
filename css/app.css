@@ -4,7 +4,7 @@ body {
   background-color: #FAFAFA;
   -webkit-font-smoothing: antialiased;
   font: 16px/1.7rem 'Open Sans', sans-serif;
-  color: #ECEFF1;
+  color: black;
   display: flex;
   flex-direction: column;
 }

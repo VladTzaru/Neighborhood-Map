@@ -1,14 +1,15 @@
-// Global variables
-let map;
-const markers = [];
-
-
 function MapViewModel() {
+
+  const self = this;
 
 
   // INVOKE STUFF
   initMap();
-  console.log(markers);
+
+  self.markers = ko.observableArray(locations);
+  console.log(self.markers());
+
+
 }
 
 

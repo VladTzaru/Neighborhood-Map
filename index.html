@@ -30,11 +30,8 @@
 
       <h4 class="list-view-section">List of places</h4>
 
-      <ul>
-        <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
-        <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
-        <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
-        <li><a href="#" class="list-view-link">Times Square Manhattan, NY 10036</a></li>
+      <ul data-bind="foreach: markers">
+        <li><a href="#" class="list-view-link" data-bind="text: title"></a></li>
       </ul>
     </div>
 
@@ -51,6 +48,7 @@
 
 
   <!-- Custom JS -->
+  <script defer src="js/model/locations.js"></script>
   <script defer src="js/map.js"></script>
   <script defer src="js/app.js"></script>
   <script async defer

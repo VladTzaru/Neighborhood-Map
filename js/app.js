@@ -7,7 +7,6 @@ function MapViewModel() {
   initMap();
 
   self.markers = ko.observableArray(locations);
-  console.log(self.markers());
 
 
 }

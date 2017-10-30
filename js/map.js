@@ -35,10 +35,10 @@ function initMap() {
       function populateInfoWindow(marker, infowindow) {
           if (infowindow.marker !== marker) {
               infowindow.marker = marker;
-              infowindow.setContent(`<div>${marker.title}</div>`);
+              infowindow.setContent(`<h4>${marker.title}</h4>`);
               infowindow.open(map, marker);
               infowindow.addListener('closeclick', function() {
-                infowindow.setMarker(null);
+                  infowindow.setMarker(null);
               });
           }
       }

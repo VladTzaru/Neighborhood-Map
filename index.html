@@ -30,7 +30,7 @@
 
       <h4 class="list-view-section">List of places</h4>
 
-      <ul data-bind="foreach: markers">
+      <ul data-bind="foreach: locations">
         <li><a href="#" class="list-view-link" data-bind="text: title"></a></li>
       </ul>
 
@@ -49,8 +49,6 @@
 
 
   <!-- Custom JS -->
-  <script defer src="js/model/locations.js"></script>
-  <script defer src="js/viewmodel/map.js"></script>
   <script defer src="js/viewmodel/app.js"></script>
   <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQqHqSY1kb3JrV9pqpHfJSHpgv3v50&callback=initApp"

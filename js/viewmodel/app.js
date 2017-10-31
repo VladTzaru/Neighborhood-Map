@@ -1,12 +1,38 @@
-function MapViewModel() {
-  'use strict';
-  const self = this;
-  
-  let map;
-  const markers = [];
-  let marker;
+// These are our default locations
+const defaultLocations = [
+  { title: 'Merkur Shopping Center', location: {lat: 45.265013, lng: 19.817400} },
+  { title: 'Novi Sad Fair', location: {lat: 45.255629, lng: 19.822341} },
+  { title: 'Amusement Park', location:{lat: 45.260970, lng: 19.818285} },
+  { title: 'Bossi Pizza', location: {lat: 45.261419, lng: 19.816066 } },
+  { title: 'Futoski park', location: {lat: 45.250660, lng: 19.826607} },
+  { title: 'Sajam Hotel', location: {lat: 45.254753, lng: 19.819443} }
+];
 
-  const largeInfoWindow = new google.maps.InfoWindow();
+
+// This is our 'Location' class
+class Location {
+  constructor(data) {
+    this.title = ko.observable(data.title);
+    this.location = ko.observable(data.location);
+  }
+}
+
+
+// This is our main viewmodel
+function MapViewModel() {
+
+  const self = this;
+  let map;
+
+  // DATA
+  this.locations = ko.observableArray([]);
+
+  // Push default locations to the 'markers' array
+  defaultLocations.forEach(function (location) {
+    self.locations.push( new Location(location) );
+  });
+
+  this.largeInfoWindow = new google.maps.InfoWindow();
 
   // initMap() starts here
   function initMap() {
@@ -15,10 +41,11 @@ function MapViewModel() {
       zoom: 13
     });
 
+
     // Create markers
-    for (let location of locations) {
-      let position = location.location;
-      let title = location.title;
+    for (let location of self.locations()) {
+      let position = location.location();
+      let title = location.title();
 
       marker = new google.maps.Marker({
         position: position,
@@ -27,12 +54,9 @@ function MapViewModel() {
         animation: google.maps.Animation.DROP
       });
 
-      // Push marker to the 'markers' array
-      markers.push(marker);
-
       // Add an onclick event to open infoWindow at each marker
       marker.addListener('click', function() {
-        populateInfoWindow(this, largeInfoWindow);
+        populateInfoWindow(this, self.largeInfoWindow);
       });
     }
   }
@@ -52,8 +76,7 @@ function MapViewModel() {
 
 
 
-  // DATA
-  this.markers = ko.observableArray(locations);
+  // Behaviours
 
 
   // INVOKE STUFF

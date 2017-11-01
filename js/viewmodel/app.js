@@ -11,10 +11,9 @@ function MapViewModel() {
 
   // Initiate map
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 45.260792, lng: 19.813940},
+    center: {lat: 45.255529, lng: 19.843903},
     zoom: 13
   });
-
 
   // DATA
   this.locations = ko.observableArray([]);

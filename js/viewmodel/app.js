@@ -1,5 +1,7 @@
 // Global variables
 let map;
+const client_ID = 'OZFEKVMOWR3DTGEKP4O5VHYI32AZ3Z2VMUHB42SIIAWPIHJO';
+const client_SECRET = 'DEHOWAYUUYOY1IPW343TNPDS5IYHO0LWTY4CE13FJEF2VTH1';
 
 
 // This is our main viewmodel

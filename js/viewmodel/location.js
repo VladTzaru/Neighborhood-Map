@@ -21,6 +21,18 @@ class Location {
     });
 
 
+    // Foursquare API
+    const foursquareURL = `https://api.foursquare.com/v2/venues/search?v=20161016&ll=41.878114%2C%20-87.629798&query=coffee&intent=checkin&client_id=${client_ID}&client_secret=${client_SECRET}`;
+
+    fetch(foursquareURL, {
+      method: 'get'
+    }).then(function(response) {
+      console.log(response);
+    }).catch(function(err) {
+      console.log(err);
+    });
+
+
     // Shows/Hides markers
     this.showMarker = ko.computed( () => {
       self.isVisible() === true ? self.marker.setMap(map) : self.marker.setMap(null);

@@ -25,7 +25,11 @@ class Location {
         response.json().then(function(data) {
           let response = data.response.venues[0];
           // Update values
+          console.log(response);
           self.phone = response.contact.formattedPhone;
+          self.category = response.categories[0].name;
+          self.fullAddress = response.location.address;
+          self.website = response.url;
         });
       }
     )
@@ -34,16 +38,8 @@ class Location {
     });
 
 
-
-    // Infowindow HTML
-    this.content = `
-        <ul>
-          <li>${self.phone}</li>
-        </ul>
-    `;
-
     // Google methods
-    this.infoWindow = new google.maps.InfoWindow( {content: self.content} );
+    this.infoWindow = new google.maps.InfoWindow();
     this.marker = new google.maps.Marker({
       position: self.geoLoc(),
       map: map,
@@ -65,6 +61,16 @@ class Location {
 
     // Add an onclick event to open infoWindow at each marker
     this.marker.addListener('click', function() {
+      // HTML for our infowindow
+      let content = `
+        <h4>${self.title()}</h4>
+        <p>Phone: ${self.phone}</p>
+        <p>Category: ${self.category}</p>
+        <p>Address: ${self.fullAddress}</p>
+        <a href="${self.website}" target="_blank">Website</a>
+      `;
+      
+      self.infoWindow.setContent(content);
       self.infoWindow.open(map, this);
     });
 

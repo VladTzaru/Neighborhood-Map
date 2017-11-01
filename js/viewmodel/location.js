@@ -27,12 +27,15 @@ class Location {
     }, this);
 
 
-    // Event listeners
+    this.openInfowindow = function (location) {
+      google.maps.event.trigger(self.marker, 'click');
+    };
+
+
     // Add an onclick event to open infoWindow at each marker
     this.marker.addListener('click', function() {
-      if (self.infoWindow.marker !== this) {
-        self.infoWindow.open(map, this);
-      }
+      self.infoWindow.open(map, this);
     });
+
   }
 }

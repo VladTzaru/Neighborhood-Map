@@ -17,18 +17,13 @@ function MapViewModel() {
   // DATA
   this.locations = ko.observableArray([]);
 
-  // Push default locations to the 'markers' array
+
+  // Push our default locations to the 'locations' array
   defaultLocations.forEach(function (location) {
     self.locations.push( new Location (location) );
   });
 
-
-
-
-  // Behaviours
-
-
-}
+};
 // Our view model ends here
 
 

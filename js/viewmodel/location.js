@@ -25,7 +25,6 @@ class Location {
         response.json().then(function(data) {
           let response = data.response.venues[0];
           // Update values
-          console.log(response);
           self.phone = response.contact.formattedPhone;
           self.category = response.categories[0].name;
           self.fullAddress = response.location.address;
@@ -67,9 +66,8 @@ class Location {
         <p>Phone: ${self.phone}</p>
         <p>Category: ${self.category}</p>
         <p>Address: ${self.fullAddress}</p>
-        <a href="${self.website}" target="_blank">Website</a>
-      `;
-      
+        <a href="${self.website}" target="_blank">Website</a>`;
+
       self.infoWindow.setContent(content);
       self.infoWindow.open(map, this);
     });

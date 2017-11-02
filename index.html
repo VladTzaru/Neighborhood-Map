@@ -22,15 +22,14 @@
   <main class="content">
     <!-- **** LIST VIEW **** -->
     <div id="list-view">
-      <h4 class="list-view-section">Search places</h4>
+      <h4 class="list-view-section">Filter places</h4>
       <form id="list-form">
-        <input autofocus class="list-form-input" type="text" placeholder="Enter location">
-        <button class="list-form-submit-btn" type="submit">Submit</button>
+        <input data-bind="textInput: searchQuery, hasFocus: isFocused" class="list-form-input" type="text" placeholder="e.g. Zak">
       </form>
 
       <h4 class="list-view-section">List of places</h4>
 
-      <ul data-bind="foreach: locations">
+      <ul data-bind="foreach: filteredLocations">
         <li><a href="#" class="list-view-link" data-bind="click: openInfowindow, text: title"></a></li>
       </ul>
 

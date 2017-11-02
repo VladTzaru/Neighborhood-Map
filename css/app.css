@@ -99,8 +99,6 @@ footer {
   margin-top: 1em;
   border-bottom: 1px solid #26A69A;
   padding-bottom: 1em;
-  display: inline-flex;
-  flex-flow: row wrap;
 }
 
 .list-form-input {
@@ -108,6 +106,8 @@ footer {
   border: 1px solid #26A69A;
   border-radius: 4px;
   background-color: transparent;
+  max-width: 100%;
+  width: 100%;
   color: #80CBC4;
   outline: none;
   transition: ease-in-out .3s;
@@ -116,23 +116,6 @@ footer {
 
 .list-form-input:hover {
   border: 1px solid #80CBC4;
-}
-
-.list-form-submit-btn {
-  padding: .6em;
-  border-radius: 4px;
-  border: 1px solid #26A69A;
-  text-transform: uppercase;
-  font-weight: 600;
-  background-color: transparent;
-  transition: ease-in-out .3s;
-  font-size: 14px;
-  color: #26A69A;
-}
-
-.list-form-submit-btn:hover {
-  border: 1px solid #80CBC4;
-  color: #80CBC4;
 }
 
 .list-view-link {

@@ -81,7 +81,6 @@ class Location {
           // Parse the response and update values
           response.json().then( (data) => {
             let response = data.response.venues[0];
-            console.log(data);
             self.phone = response.contact.formattedPhone;
             self.category = response.categories[0].name;
             self.fullAddress = response.location.formattedAddress;

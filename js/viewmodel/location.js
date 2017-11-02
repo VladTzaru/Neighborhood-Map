@@ -30,7 +30,7 @@ class Location {
         });
       }
     )
-    .catch( (err) => console.log('Fetch Error :-S', err) );
+    .catch( (err) => console.log('Looks like there was a problem. Status Error:', err) );
 
 
     // Google methods
@@ -42,11 +42,19 @@ class Location {
       animation: google.maps.Animation.DROP
     });
 
-
     this.showHideMarkers = ko.computed( () => {
       self.isVisible() === true ? self.marker.setMap(map) : self.marker.setMap(null);
     }, this);
 
+    // Bounce a marker in Goggle maps once
+    this.toggleBounce = () => {
+      if (self.marker.getAnimation() !== null) {
+        self.marker.setAnimation(null);
+      } else {
+        self.marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout( () => { self.marker.setAnimation(null); }, 750);
+      }
+    }
 
     this.openInfowindow = (location) => {
       google.maps.event.trigger(self.marker, 'click');
@@ -55,6 +63,8 @@ class Location {
 
     // Add an onclick event to open infoWindow at each marker
     this.marker.addListener('click', function() {
+      // Bounce marker
+      self.toggleBounce();
       // HTML for our infowindow
       const content = `
         <h4>${self.title()}</h4>

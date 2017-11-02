@@ -151,13 +151,14 @@ footer {
   text-transform: uppercase;
   border-bottom: 1px solid #CFD8DC;
   padding-bottom: 0.5rem;
+  color: #455A64;
 }
 
 .infowindow-category {
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
-  color: #78909C;
+  color: #B0BEC5;
 }
 
 .infowindow-content {

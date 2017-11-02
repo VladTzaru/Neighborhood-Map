@@ -11,27 +11,8 @@ class Location {
     this.fullAddress;
 
 
-    // Foursquare API
-    const foursquareURL = `https://api.foursquare.com/v2/venues/search?v=20161016&ll=${this.geoLoc().lat}%2C%20${this.geoLoc().lng}&query=${this.title()}&intent=checkin&client_id=OZFEKVMOWR3DTGEKP4O5VHYI32AZ3Z2VMUHB42SIIAWPIHJO&client_secret=DEHOWAYUUYOY1IPW343TNPDS5IYHO0LWTY4CE13FJEF2VTH1`;
-
-
-    fetch(foursquareURL)
-    .then( (response) => {
-        if (response.status !== 200) {
-          console.log('Looks like there was a problem. Status Code: ' + response.status);
-          return;
-        }
-        // Parse the response and update values
-        response.json().then( (data) => {
-          let response = data.response.venues[0];
-          self.phone = response.contact.formattedPhone;
-          self.category = response.categories[0].name;
-          self.fullAddress = response.location.address;
-          self.website = response.url;
-        });
-      }
-    )
-    .catch( (err) => console.log('Looks like there was a problem. Status Error:', err) );
+    // This is our Foursquare API url
+    const foursquareURL = `https://api.foursquare.com/v2/venues/search?v=20161016&ll=${this.geoLoc().lat}%2C%20${this.geoLoc().lng}&query=${this.title()}&intent=checkin&client_id=NMNSC2SLOPCO3DYBPGGQSIP3LOYYMZMG2GSBDJ0XFDFZFNKH&client_secret=J12J4HIQYKOJ5M0H2EXIIFJMEWUQ5JANO4IRG15QIFPWEREL`;
 
 
     // Google methods
@@ -90,7 +71,31 @@ class Location {
     // Add an onclick event to open infoWindow at each marker
     this.marker.addListener('click', function() {
       self.toggleBounce();
-      self.populateInfoWindow(this, self.infoWindow);
+
+      fetch(foursquareURL)
+      .then( (response) => {
+          if (response.status !== 200) {
+            console.log(`Looks like there was a problem. Status Code: ${response.status}`);
+            return;
+          }
+          // Parse the response and update values
+          response.json().then( (data) => {
+            let response = data.response.venues[0];
+            self.phone = response.contact.formattedPhone;
+            self.category = response.categories[0].name;
+            self.fullAddress = response.location.address;
+            self.website = response.url;
+
+            // Populate infowindow with updated information
+            self.populateInfoWindow(this, self.infoWindow);
+          });
+        }
+      )
+      .catch( (err) => {
+          console.log('Looks like there was a problem. Status Error:', err);
+          alert(`Looks like there was a problem. Please try again later.`);
+      });
+
     });
 
   }

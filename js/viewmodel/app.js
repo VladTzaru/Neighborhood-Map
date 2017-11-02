@@ -25,6 +25,12 @@ function MapViewModel() {
   // BEHAVIOURS
   this.searchQuery = ko.observable('');
   this.isFocused = ko.observable(true);
+  this.isMenuClosed = ko.observable(false);
+
+  // Opens/Closes menu
+  this.toggleMenu = function () {
+    self.isMenuClosed(!this.isMenuClosed());
+  }
 
   /*
   Filter list

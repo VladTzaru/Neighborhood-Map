@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/app.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
   <!-- Knockout -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
 </head>
@@ -17,17 +19,20 @@
   <header>
     <img class="header-logo" src="img/earth-globe.svg" alt="Logo">
     <h1 class="header-title">Neighborhood Map</h1>
+    <button class="btn-menu" type="button" data-bind="click: toggleMenu"><i class="material-icons">menu</i></button>
   </header>
 
   <main class="content">
     <!-- **** LIST VIEW **** -->
-    <div id="list-view">
+    <div id="list-view" data-bind="css: {'toggleMenu' : isMenuClosed}">
       <h4 class="list-view-section">Filter places</h4>
       <form id="list-form">
         <input data-bind="textInput: searchQuery, hasFocus: isFocused" class="list-form-input" type="text" placeholder="e.g. Zak">
       </form>
 
       <h4 class="list-view-section">List of places</h4>
+
+      <p id="api-error"></p>
 
       <ul data-bind="foreach: filteredLocations">
         <li><a href="#" data-bind="click: openInfowindow, text: title"></a></li>

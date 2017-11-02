@@ -4,7 +4,7 @@ body {
   background-color: #FAFAFA;
   -webkit-font-smoothing: antialiased;
   font: 16px/1.7rem 'Open Sans', sans-serif;
-  color: black;
+  color: #263238;
   display: flex;
   flex-direction: column;
 }
@@ -42,6 +42,7 @@ header {
 .header-title {
   margin: 0 0 .2em 2.5em;
   font-size: 18px;
+  color: #B0BEC5;
 }
 
 /* https://www.flaticon.com/free-icon/earth-globe_463553#term=world map&page=1&position=57 */
@@ -137,6 +138,12 @@ footer {
 /* MAP-VIEW */
 #map {
   height: 100%;
+}
+
+.google-error {
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 34px;
 }
 
 

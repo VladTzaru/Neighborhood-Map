@@ -14,6 +14,7 @@ class Location {
     // Foursquare API
     const foursquareURL = `https://api.foursquare.com/v2/venues/search?v=20161016&ll=${this.geoLoc().lat}%2C%20${this.geoLoc().lng}&query=${this.title()}&intent=checkin&client_id=OZFEKVMOWR3DTGEKP4O5VHYI32AZ3Z2VMUHB42SIIAWPIHJO&client_secret=DEHOWAYUUYOY1IPW343TNPDS5IYHO0LWTY4CE13FJEF2VTH1`;
 
+
     fetch(foursquareURL)
     .then( (response) => {
         if (response.status !== 200) {
@@ -42,9 +43,11 @@ class Location {
       animation: google.maps.Animation.DROP
     });
 
+
     this.showHideMarkers = ko.computed( () => {
       self.isVisible() === true ? self.marker.setMap(map) : self.marker.setMap(null);
     }, this);
+
 
     // Bounce a marker in Goggle maps once
     this.toggleBounce = () => {
@@ -56,15 +59,13 @@ class Location {
       }
     }
 
+
     this.openInfowindow = (location) => {
       google.maps.event.trigger(self.marker, 'click');
     };
 
 
-    // Add an onclick event to open infoWindow at each marker
-    this.marker.addListener('click', function() {
-      // Bounce marker
-      self.toggleBounce();
+    this.populateInfoWindow = function (marker, infowindow) {
       // HTML for our infowindow
       const content = `
         <h4>${self.title()}</h4>
@@ -73,8 +74,23 @@ class Location {
         <p>Address: ${self.fullAddress}</p>
         <a href="${self.website}" target="_blank">Website</a>`;
 
-      self.infoWindow.setContent(content);
-      self.infoWindow.open(map, this);
+      // Check to make sure the infowindow is not already opened on this marker.
+      if (infowindow.marker != marker) {
+        infowindow.marker = marker;
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+        // Make sure the marker property is cleared if the infowindow is closed.
+        infowindow.addListener('closeclick', function() {
+          infowindow.marker = null;
+        });
+      }
+    }
+
+
+    // Add an onclick event to open infoWindow at each marker
+    this.marker.addListener('click', function() {
+      self.toggleBounce();
+      self.populateInfoWindow(this, self.infoWindow);
     });
 
   }

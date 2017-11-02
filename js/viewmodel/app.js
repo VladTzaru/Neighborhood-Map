@@ -51,7 +51,11 @@ function MapViewModel() {
 
 // Google map error handler
 function goggleRequestError() {
-  const message = `<p class="google-error">Oops! Something went wrong. This page didn’t load Google Maps correctly. <br> Please try again later.</p>`
+  const message = `
+    <div class="google-error">
+      <img class="google-error-icon" src="img/error.svg">
+      <p>Oops! Something went wrong. This page didn’t load Google Maps correctly. <br> Please try again later.</p>
+    </div>`
   document.getElementById('map').innerHTML = message;
 }
 

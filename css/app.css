@@ -4,7 +4,7 @@ body {
   background-color: #FAFAFA;
   -webkit-font-smoothing: antialiased;
   font: 16px/1.7rem 'Open Sans', sans-serif;
-  color: black;
+  color: #263238;
   display: flex;
   flex-direction: column;
 }
@@ -23,6 +23,9 @@ h1, h2, h3, h4 {
 header {
   background-color: #263238;
   padding: 1em;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -40,15 +43,24 @@ header {
 }
 
 .header-title {
-  margin: 0 0 .2em 2.5em;
   font-size: 18px;
+  color: #B0BEC5;
 }
 
 /* https://www.flaticon.com/free-icon/earth-globe_463553#term=world map&page=1&position=57 */
 .header-logo {
-  width: 34px;
+  width: 28px;
+  margin-right: 1em;
+}
+
+.btn-menu {
   position: absolute;
-  top: 12px;
+  right: 1em;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #B0BEC5;
+  cursor: pointer;
 }
 
 ul {
@@ -62,33 +74,36 @@ li {
 
 a {
   text-decoration: none;
+  color: #26A69A;
+  transition: ease-in-out .3s;
+}
+
+a:hover {
+  color: #80CBC4;
 }
 
 footer {
   background-color: #CFD8DC;
   padding: 1em;
-}
-
-.footer-copyright {
   text-align: center;
-  color: #212121;
 }
 
 
 /* LIST-VIEW */
 #list-view {
   position: absolute;
-  top: 62.5px;
+  top: 59.5px;
   left: 0;
   bottom: 0;
   background-color: #37474F;
   z-index: 10;
-  max-width: 320px;
+  max-width: 250px;
   width: 100%;
   padding: 1em;
   opacity: .9;
   transition: ease-in-out .3s;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #list-view:hover {
@@ -99,8 +114,6 @@ footer {
   margin-top: 1em;
   border-bottom: 1px solid #26A69A;
   padding-bottom: 1em;
-  display: inline-flex;
-  flex-flow: row wrap;
 }
 
 .list-form-input {
@@ -108,6 +121,8 @@ footer {
   border: 1px solid #26A69A;
   border-radius: 4px;
   background-color: transparent;
+  max-width: 100%;
+  width: 100%;
   color: #80CBC4;
   outline: none;
   transition: ease-in-out .3s;
@@ -116,32 +131,6 @@ footer {
 
 .list-form-input:hover {
   border: 1px solid #80CBC4;
-}
-
-.list-form-submit-btn {
-  padding: .6em;
-  border-radius: 4px;
-  border: 1px solid #26A69A;
-  text-transform: uppercase;
-  font-weight: 600;
-  background-color: transparent;
-  transition: ease-in-out .3s;
-  font-size: 14px;
-  color: #26A69A;
-}
-
-.list-form-submit-btn:hover {
-  border: 1px solid #80CBC4;
-  color: #80CBC4;
-}
-
-.list-view-link {
-  color: #26A69A;
-  transition: ease-in-out .3s;
-}
-
-.list-view-link:hover {
-  color: #80CBC4;
 }
 
 .list-view-section {
@@ -156,8 +145,70 @@ footer {
   height: 100%;
 }
 
+.infowindow-title {
+  font-size: 1.45rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid #CFD8DC;
+  padding-bottom: 0.5rem;
+  color: #455A64;
+}
+
+.infowindow-category {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #B0BEC5;
+}
+
+.infowindow-content {
+  font-size: 14px;
+  color: #455A64;
+  text-transform: none;
+  font-weight: 300;
+}
+
+.infowindow-link {
+  font-size: 14px;
+  color: #26A69A;
+  text-transform: none;
+  transition: ease-in-out .3s;
+  font-weight: 300;
+
+}
+
+.infowindow-link:hover {
+  color: #80CBC4;
+}
+
+.google-error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: fade-in 2s;
+}
+
+.google-error-icon {
+  max-width: 56px;
+  width: 100%;
+}
+
 
 /* HELPERS */
 .content {
   flex: 1 0 auto;
+}
+
+.toggleMenu {
+  transform: translateX(-100%);
+}
+
+
+/* ANIMATIONS */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

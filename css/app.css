@@ -50,7 +50,7 @@ header {
 /* https://www.flaticon.com/free-icon/earth-globe_463553#term=world map&page=1&position=57 */
 .header-logo {
   width: 28px;
-  margin-right: .4em;
+  margin-right: 1em;
 }
 
 .btn-menu {
@@ -143,6 +143,39 @@ footer {
 /* MAP-VIEW */
 #map {
   height: 100%;
+}
+
+.infowindow-title {
+  font-size: 1.45rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid #CFD8DC;
+  padding-bottom: 0.5rem;
+}
+
+.infowindow-category {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #78909C;
+}
+
+.infowindow-content {
+  font-size: 14px;
+  color: #455A64;
+  text-transform: none;
+}
+
+.infowindow-link {
+  font-size: 14px;
+  color: #26A69A;
+  text-transform: none;
+  transition: ease-in-out .3s;
+
+}
+
+.infowindow-link:hover {
+  color: #80CBC4;
 }
 
 .google-error {

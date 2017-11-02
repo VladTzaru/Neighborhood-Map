@@ -49,11 +49,11 @@ class Location {
     this.populateInfoWindow = function (marker, infowindow) {
       // HTML for our infowindow
       const content = `
-        <h4>${self.title()}</h4>
-        <p>Phone: ${self.phone}</p>
-        <p>Category: ${self.category}</p>
-        <p>Address: ${self.fullAddress}</p>
-        <a href="${self.website}" target="_blank">Website</a>`;
+        <h4 class="infowindow-title">${self.title()}</h4>
+        <p class="infowindow-category">Phone: <span class="infowindow-content">${self.phone}</span></p>
+        <p class="infowindow-category">Category: <span class="infowindow-content">${self.category}</span></p>
+        <p class="infowindow-category">Address: <span class="infowindow-content">${self.fullAddress}</span></p>
+        <p class="infowindow-category">Website: <a class="infowindow-link" href="${self.website}" target="_blank">${self.website}</a></p>`;
 
       // Check to make sure the infowindow is not already opened on this marker.
       if (infowindow.marker != marker) {

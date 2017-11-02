@@ -1,17 +1,9 @@
-// Global variables
-let map;
-
-
 // This is our main viewmodel
 function MapViewModel() {
   const self = this;
 
-
   // Initiate map
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 45.255529, lng: 19.843903},
-    zoom: 13
-  });
+  initMap();
 
   // DATA
   this.locations = ko.observableArray([]);

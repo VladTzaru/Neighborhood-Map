@@ -60,6 +60,7 @@ header {
   outline: none;
   border: none;
   color: #B0BEC5;
+  cursor: pointer;
 }
 
 ul {

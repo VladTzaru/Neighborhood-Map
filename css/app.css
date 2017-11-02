@@ -23,6 +23,7 @@ h1, h2, h3, h4 {
 header {
   background-color: #263238;
   padding: 1em;
+  position: relative;
 }
 
 
@@ -63,6 +64,12 @@ li {
 
 a {
   text-decoration: none;
+  color: #26A69A;
+  transition: ease-in-out .3s;
+}
+
+a:hover {
+  color: #80CBC4;
 }
 
 footer {
@@ -90,6 +97,7 @@ footer {
   opacity: .9;
   transition: ease-in-out .3s;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #list-view:hover {
@@ -119,21 +127,19 @@ footer {
   border: 1px solid #80CBC4;
 }
 
-.list-view-link {
-  color: #26A69A;
-  transition: ease-in-out .3s;
-}
-
-.list-view-link:hover {
-  color: #80CBC4;
-}
-
 .list-view-section {
   text-transform: uppercase;
   color: #B0BEC5;
   margin-top: 1em;
 }
 
+.contribute {
+  color: #B0BEC5;
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  transform: translateY(-50%);
+}
 
 /* MAP-VIEW */
 #map {

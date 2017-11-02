@@ -17,6 +17,7 @@
   <header>
     <img class="header-logo" src="img/earth-globe.svg" alt="Logo">
     <h1 class="header-title">Neighborhood Map</h1>
+    <span class="contribute">Powered by <a target="_blank" href="https://foursquare.com/">Foursquare</a></span>
   </header>
 
   <main class="content">
@@ -30,7 +31,7 @@
       <h4 class="list-view-section">List of places</h4>
 
       <ul data-bind="foreach: filteredLocations">
-        <li><a href="#" class="list-view-link" data-bind="click: openInfowindow, text: title"></a></li>
+        <li><a href="#" data-bind="click: openInfowindow, text: title"></a></li>
       </ul>
 
     </div>

@@ -31,7 +31,7 @@ function MapViewModel() {
   A cool article regarding Utility Functions in KnockoutJS
   http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
   */
-  this.filteredLocations = ko.computed( function() {
+  this.filteredLocations = ko.computed(() => {
     const filter = self.searchQuery();
     if (!filter) {
       self.locations().forEach((location) => location.isVisible(true));
@@ -47,9 +47,9 @@ function MapViewModel() {
   }, this);
 
 };
-// Our view model ends here
 
 
+// Google map error handler
 function goggleRequestError() {
   alert('hi');
 }

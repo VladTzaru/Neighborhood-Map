@@ -15,16 +15,14 @@ class Location {
     const foursquareURL = `https://api.foursquare.com/v2/venues/search?v=20161016&ll=${this.geoLoc().lat}%2C%20${this.geoLoc().lng}&query=${this.title()}&intent=checkin&client_id=OZFEKVMOWR3DTGEKP4O5VHYI32AZ3Z2VMUHB42SIIAWPIHJO&client_secret=DEHOWAYUUYOY1IPW343TNPDS5IYHO0LWTY4CE13FJEF2VTH1`;
 
     fetch(foursquareURL)
-    .then(function(response) {
+    .then( (response) => {
         if (response.status !== 200) {
           console.log('Looks like there was a problem. Status Code: ' + response.status);
           return;
         }
-
-        // Parse the response
-        response.json().then(function(data) {
+        // Parse the response and update values
+        response.json().then( (data) => {
           let response = data.response.venues[0];
-          // Update values
           self.phone = response.contact.formattedPhone;
           self.category = response.categories[0].name;
           self.fullAddress = response.location.address;
@@ -32,9 +30,7 @@ class Location {
         });
       }
     )
-    .catch(function(err) {
-      console.log('Fetch Error :-S', err);
-    });
+    .catch( (err) => console.log('Fetch Error :-S', err) );
 
 
     // Google methods
@@ -47,13 +43,12 @@ class Location {
     });
 
 
-    // Shows/Hides markers
-    this.showMarker = ko.computed( () => {
+    this.showHideMarkers = ko.computed( () => {
       self.isVisible() === true ? self.marker.setMap(map) : self.marker.setMap(null);
     }, this);
 
 
-    this.openInfowindow = function (location) {
+    this.openInfowindow = (location) => {
       google.maps.event.trigger(self.marker, 'click');
     };
 
@@ -61,7 +56,7 @@ class Location {
     // Add an onclick event to open infoWindow at each marker
     this.marker.addListener('click', function() {
       // HTML for our infowindow
-      let content = `
+      const content = `
         <h4>${self.title()}</h4>
         <p>Phone: ${self.phone}</p>
         <p>Category: ${self.category}</p>

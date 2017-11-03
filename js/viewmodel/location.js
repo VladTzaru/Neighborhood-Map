@@ -59,7 +59,7 @@ class Location {
                 <p class="infowindow-category">Website: <span class="infowindow-content">${self.url}</span></p>`;
 
             // Check to make sure the infowindow is not already opened on this marker.
-            if (infowindow.marker != marker) {
+            if (infowindow.marker !== marker) {
                 infowindow.marker = marker;
                 infowindow.setContent(content);
                 infowindow.open(map, marker);

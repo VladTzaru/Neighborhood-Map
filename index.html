@@ -32,8 +32,6 @@
 
       <h4 class="list-view-section">List of places</h4>
 
-      <p id="api-error"></p>
-
       <ul data-bind="foreach: filteredLocations">
         <li><a href="#" data-bind="click: openInfowindow, text: title"></a></li>
       </ul>
@@ -54,10 +52,10 @@
 
 
   <!-- Scripts -->
-  <script defer src="js/model/mapStyle.js"></script>
-  <script defer src="js/model/locations.js"></script>
-  <script defer src="js/viewmodel/location.js"></script>
-  <script defer src="js/viewmodel/app.js"></script>
+  <script src="js/model/mapStyle.js"></script>
+  <script src="js/model/locations.js"></script>
+  <script src="js/viewmodel/location.js"></script>
+  <script src="js/viewmodel/app.js"></script>
   <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQqHqSY1kb3JrV9pqpHfJSHpgv3v50&callback=initMap"
       onerror="goggleRequestError()">

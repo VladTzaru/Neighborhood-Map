@@ -70,7 +70,7 @@ function goggleRequestError() {
     const message = `
         <div class="google-error">
             <img class="google-error-icon" src="img/error.svg">
-            <p>Oops! Something went wrong. This page didn’t load Google Maps correctly. <br> Please try again later.</p>
+            <p>Oops! This page didn’t load Google Maps correctly. <br> Please try again later.</p>
         </div>`;
     document.getElementById('map').innerHTML = message;
 }

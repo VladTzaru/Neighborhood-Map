@@ -1,64 +1,63 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Neighborhood Map</title>
-  <!-- Reset css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="css/app.css">
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-  <!-- Knockout -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
-</head>
-<body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Neighborhood Map</title>
+      <!-- Reset css -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+      <!-- Custom styles -->
+      <link rel="stylesheet" href="css/app.css">
+      <!-- Fonts -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Knockout -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+   </head>
+   <body>
 
 
-  <header>
-    <img class="header-logo" src="img/earth-globe.svg" alt="Logo">
-    <h1 class="header-title">Neighborhood Map</h1>
-    <button class="btn-menu" type="button" data-bind="click: toggleMenu"><i class="material-icons">menu</i></button>
-  </header>
-
-  <main class="content">
-    <!-- **** LIST VIEW **** -->
-    <div id="list-view" data-bind="css: {'toggleMenu' : isMenuClosed}">
-      <h4 class="list-view-section">Filter places</h4>
-      <div id="list-form">
-        <input data-bind="textInput: searchQuery, hasFocus: isFocused" class="list-form-input" type="text" placeholder="e.g. Zak">
-      </div>
-
-      <h4 class="list-view-section">List of places</h4>
-
-      <ul data-bind="foreach: filteredLocations">
-        <li><a href="#" data-bind="click: openInfowindow, text: title"></a></li>
-      </ul>
-
-    </div>
+      <header>
+         <nav class="mainNav">
+           <img class="mainNav-logo" src="img/earth-globe.svg" alt="Logo">
+           <h1 class="mainNav-title">Neighborhood Map</h1>
+           <button class="btn-menu" type="button" data-bind="click: toggleMenu"><i class="material-icons">menu</i></button>
+         </nav>
+      </header>
 
 
-    <!-- **** MAP VIEW **** -->
-    <!-- Map placeholder -->
-    <div id="map"></div>
-  </main>
+      <main class="content">
+         <!-- **** LIST VIEW **** -->
+         <div id="list-view" data-bind="css: {'toggleMenu' : isMenuClosed}">
+            <h4 class="list-view-section">Filter places</h4>
+            <div id="list-form">
+               <input data-bind="textInput: searchQuery, hasFocus: isFocused" class="list-form-input" type="text" placeholder="e.g. Zak">
+            </div>
+            <h4 class="list-view-section">List of places</h4>
+            <ul class="list-view-container" data-bind="foreach: filteredLocations">
+               <li><a href="#" data-bind="click: openInfowindow, text: title"></a></li>
+            </ul>
+         </div>
+
+         <!-- **** MAP VIEW **** -->
+         <!-- Map placeholder -->
+         <div id="map"></div>
+      </main>
 
 
-  <footer>
-    <p class="footer-copyright">Copyright © 2017 Vladimir Bojovic. All rights reserved.</p>
-    <p>Powered by <a target="_blank" href="https://foursquare.com/">Foursquare</a></p>
-  </footer>
+      <footer>
+         <p class="footer-copyright">Copyright © 2017 Vladimir Bojovic. All rights reserved.</p>
+         <p>Powered by <a target="_blank" href="https://foursquare.com/">Foursquare</a></p>
+      </footer>
 
 
-  <!-- Scripts -->
-  <script src="js/model/mapStyle.js"></script>
-  <script src="js/model/locations.js"></script>
-  <script src="js/viewmodel/location.js"></script>
-  <script src="js/viewmodel/app.js"></script>
-  <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQqHqSY1kb3JrV9pqpHfJSHpgv3v50&callback=initMap"
-      onerror="goggleRequestError()">
-  </script>
-</body>
+      <!-- Scripts -->
+      <script src="js/model/mapStyle.js"></script>
+      <script src="js/model/locations.js"></script>
+      <script src="js/viewmodel/location.js"></script>
+      <script src="js/viewmodel/app.js"></script>
+      <script async defer
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxYuQqHqSY1kb3JrV9pqpHfJSHpgv3v50&callback=initMap"
+         onerror="goggleRequestError()"></script>
+   </body>
 </html>

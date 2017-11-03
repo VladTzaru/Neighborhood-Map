@@ -6,7 +6,7 @@ class Location {
         this.geoLoc = data.location;
         this.isVisible = ko.observable(true);
         this.phone;
-        this.website;
+        this.img;
         this.category;
         this.fullAddress;
 
@@ -52,11 +52,14 @@ class Location {
         this.populateInfoWindow = function(marker, infowindow) {
             // HTML for our infowindow
             const content = `
-                <h4 class="infowindow-title">${self.title}</h4>
+                <h3 class="infowindow-title">${self.title}</h3>
+                <div class="infowindow-streetView">
+                    <h4 class="infowindow-category">Street view</h4>
+                    <img class="infowindow-img" src="${self.url}" alt="Street view picture">
+                </div>
                 <p class="infowindow-category">Phone: <span class="infowindow-content">${self.phone}</span></p>
                 <p class="infowindow-category">Category: <span class="infowindow-content">${self.category}</span></p>
-                <p class="infowindow-category">Address: <span class="infowindow-content">${self.fullAddress}</span></p>
-                <p class="infowindow-category">Website: <a class="infowindow-link" href="${self.website}" target="_blank">${self.website}</a></p>`;
+                <p class="infowindow-category">Address: <span class="infowindow-content">${self.fullAddress}</span></p>`;
 
             // Check to make sure the infowindow is not already opened on this marker.
             if (infowindow.marker != marker) {
@@ -82,11 +85,14 @@ class Location {
                     }
                     // Parse the response and update values
                     response.json().then((data) => {
+                        console.log(data);
                         let response = data.response.venues[0];
                         self.phone = response.contact.formattedPhone;
                         self.category = response.categories[0].name;
                         self.fullAddress = response.location.formattedAddress;
-                        self.website = response.url;
+
+                        // Load streetview
+                        self.url = `https://maps.googleapis.com/maps/api/streetview?size=1000x300&location=${self.fullAddress}`;
 
                         // Populate infowindow with updated information
                         self.populateInfoWindow(this, infoWindow);

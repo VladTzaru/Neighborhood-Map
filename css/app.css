@@ -211,14 +211,3 @@ a:hover {
     -webkit-transform: translateX(0) !important;
     transform: translateX(0) !important;
 }
-
-
-/* ANIMATIONS */
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}

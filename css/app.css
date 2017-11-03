@@ -103,6 +103,7 @@ footer {
   opacity: .9;
   overflow-y: scroll;
   overflow-x: hidden;
+  transition: ease-in-out .3s;
 }
 
 #list-form {

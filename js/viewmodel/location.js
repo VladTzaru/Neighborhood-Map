@@ -97,7 +97,7 @@ class Location {
                         self.fullAddress = response.location.formattedAddress;
 
                         // Load streetview
-                        self.url = `https://maps.googleapis.com/maps/api/streetview?size=1000x300&location=${self.fullAddress}`;
+                        self.url = `https://maps.googleapis.com/maps/api/streetview?size=1000x300&location=${self.fullAddress}&AIzaSyALk7giHz0T1OXq6R-DOammmrDw1U5taoQ`;
 
                         // Populate infowindow with updated information
                         self.populateInfoWindow(this, infoWindow);

@@ -17,5 +17,8 @@ https://github.com/VladTzaru/Neighborhood-Map
 ### Installing
 After you download the required project assets, open the index.html file and review the functionality of the application within your browser.
 
+#### NOTE:
+You need a working Internet connection to use this app.
+
 ## Authors
 * **Vladimir Bojovic** - *Development* - [GitHub](https://github.com/VladTzaru)

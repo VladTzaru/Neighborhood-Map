@@ -8,6 +8,8 @@ This project was evaluated by a Udacity reviewer according to this rubric: https
 To see how everything was set up, simply download the required project assets:
 https://github.com/VladTzaru/Neighborhood-Map
 
+Alternatively, you can test it online: https://vladtzaru.github.io/Neighborhood-Map/
+
 ### Prerequisites
 - KnockoutJS 3.4.2 (included)
 - Text editor for code (Atom, Sublime Text...)

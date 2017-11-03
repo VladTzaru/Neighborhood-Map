@@ -6,7 +6,6 @@ class Location {
         this.geoLoc = data.location;
         this.isVisible = ko.observable(true);
         this.phone;
-        this.img;
         this.category;
         this.fullAddress;
 
@@ -53,10 +52,6 @@ class Location {
             // HTML for our infowindow
             const content = `
                 <h3 class="infowindow-title">${self.title}</h3>
-                <div class="infowindow-streetView">
-                    <h4 class="infowindow-category">Street view</h4>
-                    <img class="infowindow-img" src="${self.url}" alt="Street view picture">
-                </div>
                 <p class="infowindow-category">Phone: <span class="infowindow-content">${self.phone}</span></p>
                 <p class="infowindow-category">Category: <span class="infowindow-content">${self.category}</span></p>
                 <p class="infowindow-category">Address: <span class="infowindow-content">${self.fullAddress}</span></p>`;
@@ -95,9 +90,6 @@ class Location {
                         self.phone = response.contact.formattedPhone;
                         self.category = response.categories[0].name;
                         self.fullAddress = response.location.formattedAddress;
-
-                        // Load streetview
-                        self.url = `https://maps.googleapis.com/maps/api/streetview?size=1000x300&location=${self.fullAddress}&AIzaSyALk7giHz0T1OXq6R-DOammmrDw1U5taoQ`;
 
                         // Populate infowindow with updated information
                         self.populateInfoWindow(this, infoWindow);

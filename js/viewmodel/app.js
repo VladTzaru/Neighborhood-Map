@@ -67,5 +67,5 @@ function MapViewModel() {
 
 // Google map error handler
 function goggleRequestError() {
-    alert(`Oops! This page didn’t load Google Maps correctly. Please try again later.`);
+    alert("Oops! This page didn’t load Google Maps correctly. Please try again later.");
 }

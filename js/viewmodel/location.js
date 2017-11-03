@@ -85,7 +85,7 @@ class Location {
                         let response = data.response.venues[0];
 
                         if (response === undefined) {
-                            alert(`Oops! No data was found for the selected criteria.`);
+                            alert("Oops! No data was found for the selected criteria.");
                             return;
                         }
 
@@ -96,19 +96,19 @@ class Location {
 
                         // Handle cases when API data is unavailable
                         if (self.phone === undefined || self.phone === null || self.phone === '') {
-                            self.phone = 'Not provided';
+                            self.phone = "Not provided";
                         }
 
                         if (self.category === undefined || self.category === null || self.category === '') {
-                            self.category = 'Not provided';
+                            self.category = "Not provided";
                         }
 
                         if (self.fullAddress === undefined || self.fullAddress === null || self.fullAddress === '') {
-                            self.fullAddress = 'Not provided';
+                            self.fullAddress = "Not provided";
                         }
 
                         if (self.url === undefined || self.url === null || self.url === '') {
-                            self.url = 'Not provided';
+                            self.url = "Not provided";
                         } else {
                             self.url = `<a href="${self.url}" target="_blank">${self.url}</a>`;
                         }
@@ -118,8 +118,8 @@ class Location {
                     });
                 })
                 .catch((err) => {
-                    console.log('Looks like there was a problem. Status Error:', err);
-                    alert(`Looks like there was a problem. Please try again later.`);
+                    console.log("Looks like there was a problem. Status Error:", err);
+                    alert("Looks like there was a problem. Please try again later.");
                 });
         });
     }

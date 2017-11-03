@@ -11,6 +11,8 @@ function initMap() {
             lng: 19.843903
         },
         zoom: 13,
+        scrollwheel: false,
+        zoomControl: true,
         styles: styles,
         mapTypeControl: false
     });

@@ -41,6 +41,10 @@ function MapViewModel() {
     this.isFocused = ko.observable(true);
     this.isMenuClosed = ko.observable(false);
 
+    // Close navigation if window width is < 768px
+    const w = window.innerWidth;
+    w < 768 ? this.isMenuClosed(true) : this.isMenuClosed(false);
+
     // Opens/Closes menu
     this.toggleMenu = function() {
         self.isMenuClosed(!this.isMenuClosed());
